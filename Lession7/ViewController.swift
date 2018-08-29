@@ -15,11 +15,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func navigationMovie(_ sender: Any) {
+        let button = sender as! UIButton
+        if button.tag == 101 {
+            let sqlVC = SQLController.init(nibName: "SQLController", bundle: nil)
+            self.navigationController?.pushViewController(sqlVC, animated: true)
+        } else {
+            let coreData = CoreDataController.init(nibName: "CoreDataController", bundle: nil)
+            self.navigationController?.pushViewController(coreData, animated: true)
+        }
     }
-
 
 }
 
